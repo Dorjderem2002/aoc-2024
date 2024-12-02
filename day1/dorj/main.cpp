@@ -5,7 +5,7 @@
 #include "my_utils.hpp"
 using namespace std;
 
-long long conv(string s)
+long long conv(const string &s)
 {
     return std::stoll(s);
 }
