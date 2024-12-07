@@ -35,6 +35,7 @@ int main()
     vector<vector<vector<int>>> path(n, vector<vector<int>>(m, vector<int>(4, 0)));
     vector<pair<int,pair<int,int>>> visited;
     visited.reserve(100000);
+
     std::function<int(int, int, int)> dfs = [&](int y, int x, int d){
         if(path[y][x][d])
             return -1;
@@ -53,6 +54,7 @@ int main()
         }
         return dfs(ny, nx, d);
     };
+    
     auto start = std::chrono::system_clock::now();
     dfs(y, x, 0);
     for(int i=0;i<n;i++) 
@@ -65,6 +67,7 @@ int main()
     auto end = std::chrono::system_clock::now();
     auto elapsed = end - start;
     cout<<"PART 1: "<<ans1<<" - took: "<<elapsed.count()<<"ms"<<endl;
+
     auto path_clear = [&]() {
         for(auto &[i, p] : visited)
         {
@@ -74,6 +77,7 @@ int main()
         }
         visited.clear();
     };
+
     start = std::chrono::system_clock::now();
     for (int i = 0; i < n; ++i)
     {
