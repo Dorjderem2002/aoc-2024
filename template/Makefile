@@ -1,2 +1,2 @@
 all: main.cpp
-	g++ -std=c++14 main.cpp -o main -O3
+	g++ -std=c++20 main.cpp -o main -O3
